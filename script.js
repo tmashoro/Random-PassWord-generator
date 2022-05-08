@@ -28,19 +28,36 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 function NewPassword() {
+
+
+
   passwordlength = prompt(" Choose a password length between 8 and 128 characters!")
   console.log(passwordlength)
 
   if (passwordlength < 8 || passwordlength > 128 || !passwordlength) {
-    passwordlength = window.confirm("Attention!!! You need to choose a number between 8 and 128!");
-    console.log(passwordlength);
+   // passwordlength = window.confirm("Attention!!! You need to choose a number between 8 and 128!");
+    
+    //console.log(passwordlength);
   
+    //}
+  
+    do {
+      passwordlength = window.confirm("Attention!!! You need to choose a number between 8 and 128!");
+    
+      console.log(passwordlength);
+      passwordlength = prompt(" Choose a number between 8 and 128");
+      console.log(passwordlength)
 
+    } while (passwordlength < 8 || passwordlength > 128 || !passwordlength);
+    upper = confirm("Will your password include an Upper Case letter?")
+    console.log(upper);
+    lower = confirm("Will your password include a lower case letter")
+    console.log(lower);
+    number = confirm("Will your password include a number?")
+    console.log(number);
+    special = confirm("Will your password include a special character?")
+    console.log(special); 
   }
-  /*else if (passwordlength > 8 || passwordlength < 128) {
-    console.log(passwordlength);
-}
-*/
   // confirm is true or false 
   else  {
     upper = confirm("Will your password include an Upper Case letter?")
@@ -122,7 +139,7 @@ function NewPassword() {
   }
 //Random selection
   var emptyarray = [];
-  for (var i = 1; i <= passwordlength; i++) {
+  for (var i = 0; i < passwordlength; i++) {
     var Randomnumber = userpassword[Math.floor(Math.random() * userpassword.length)];
     // password += values.substring(Randomnumber, Randomnumber + 1)
     // push randomnumber to end of emptyarray
@@ -130,7 +147,7 @@ function NewPassword() {
     //password += values[Randomnumber]
     console.log(Randomnumber)
   }
-
+  
   var Passsword = emptyarray.join("");
   console.log(password);
   return Passsword;
